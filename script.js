@@ -21,3 +21,16 @@ function getComputerChoice() {
 }
 
 console.log(getComputerChoice());
+
+/**
+ * getHumanChoice
+ * return one of the valid choices depending on what the user inputs
+ */
+
+function getHumanChoice() {
+    // prompt user for choice
+    let humanChoice = prompt("Please enter a choice of rock, paper or scissors.");
+    return humanChoice;
+}
+
+console.log(getHumanChoice());
