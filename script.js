@@ -30,3 +30,40 @@ function getHumanChoice() {
     let humanChoice = prompt("Please enter a choice of rock, paper or scissors.");
     return humanChoice;
 }
+
+// create and initialize score variables
+let humanScore = 0;
+let computerScore = 0;
+
+/**
+ * playRound
+ * takes human and computer player choices as arguments, plays a single round, 
+ * increments the round winner's score and logs a winner announcement
+ */
+
+function playRound(humanChoice, computerChoice) {
+    // make humanChoice case-insensitive
+    let formattedHumanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
+
+    // log string announcing winner
+    let winMessage;
+    // human wins round
+    if ((formattedHumanChoice == "Rock" && computerChoice == "Scissors") || (formattedHumanChoice == "Paper" && computerChoice == "Rock") || (formattedHumanChoice == "Scissors" && computerChoice == "Paper")) {
+        console.log(`You win! ${formattedHumanChoice} beats ${computerChoice}.`);
+        // increment score
+        humanScore++;
+    // computer wins round
+    } else if ((formattedHumanChoice == "Rock" && computerChoice == "Paper") || (formattedHumanChoice == "Paper" && computerChoice == "Scissors") || (formattedHumanChoice == "Scissors" && computerChoice == "Rock")) {
+        console.log(`You lose! ${computerChoice} beats ${formattedHumanChoice}.`);
+        // increment score
+        computerScore++;
+    } else {
+        console.log(`It's a tie! You both chose ${formattedHumanChoice}.`);
+    }
+}
+
+// play 1 round of rock paper scissors
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
