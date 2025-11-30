@@ -11,16 +11,14 @@ function getComputerChoice() {
     // assign number to string
     let computerChoice;
     if (random == 0) {
-        computerChoice = "rock";
+        computerChoice = "Rock";
     } else if (random == 1) {
-        computerChoice = "paper";
+        computerChoice = "Paper";
     } else {
-        computerChoice = "scissors";
+        computerChoice = "Scissors";
     }
     return computerChoice;
 }
-
-console.log(getComputerChoice());
 
 /**
  * getHumanChoice
@@ -32,5 +30,3 @@ function getHumanChoice() {
     let humanChoice = prompt("Please enter a choice of rock, paper or scissors.");
     return humanChoice;
 }
-
-console.log(getHumanChoice());
