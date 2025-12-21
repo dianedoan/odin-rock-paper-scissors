@@ -51,6 +51,13 @@ function playRound(humanChoice, computerChoice) {
     
     // display updated score
     score.textContent = `Score - Human: ${humanScore} | Computer: ${computerScore}`;
+
+    // display message for final winner once a player reaches 5 points
+    if (humanScore === 5) {
+        result.textContent = `You win with a score of ${humanScore} : ${computerScore}.`;
+    } else if (computerScore === 5) {
+        result.textContent = `You lose with a score of ${humanScore} : ${computerScore}.`;
+    }
 }
 
 // add event listeners for buttons
