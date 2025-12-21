@@ -30,24 +30,27 @@ function playRound(humanChoice, computerChoice) {
     // make humanChoice case-insensitive
     let formattedHumanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
 
-    let result;
     // human wins round
     if ((formattedHumanChoice == "Rock" && computerChoice == "Scissors") || (formattedHumanChoice == "Paper" && computerChoice == "Rock") || (formattedHumanChoice == "Scissors" && computerChoice == "Paper")) {
-        // log string announcing human as winner
+        // display string announcing human as winner
+        result.textContent = `You win! ${formattedHumanChoice} beats ${computerChoice}.`;
         console.log(`You win! ${formattedHumanChoice} beats ${computerChoice}.`);
-        result = "humanWin";
+        humanScore++;
     // computer wins round
     } else if ((formattedHumanChoice == "Rock" && computerChoice == "Paper") || (formattedHumanChoice == "Paper" && computerChoice == "Scissors") || (formattedHumanChoice == "Scissors" && computerChoice == "Rock")) {
-        // log string annuoncing computer as winner
+        // display string annuoncing computer as winner
+        result.textContent = `You lose! ${computerChoice} beats ${formattedHumanChoice}.`;
         console.log(`You lose! ${computerChoice} beats ${formattedHumanChoice}.`);
-        result = "computerWin";
+        computerScore++;
     // choices are the same
     } else {
-        // log string announcing a tie
+        // display string announcing a tie
+        result.textContent = `It's a tie! You both chose ${formattedHumanChoice}.`;
         console.log(`It's a tie! You both chose ${formattedHumanChoice}.`);
-        result = "noWinner";
     }
-    return result;
+    
+    // display updated score
+    score.textContent = `Score - Human: ${humanScore} | Computer: ${computerScore}`;
 }
 
 // add event listeners for buttons
@@ -57,3 +60,21 @@ buttons.forEach(button => {
         playRound(button.id, getComputerChoice())
     })
 });
+
+// initialize score variables
+let humanScore = 0;
+let computerScore = 0;
+
+// get reference to div element for results
+const resultsDiv = document.getElementById("results");
+
+// create elements for score and results
+const result = document.createElement("result");
+const score = document.createElement("p");
+
+// display score
+score.textContent = `Score - Human: ${humanScore} | Computer: ${computerScore}`;
+
+// append elements to div
+resultsDiv.appendChild(score);
+resultsDiv.appendChild(result);
