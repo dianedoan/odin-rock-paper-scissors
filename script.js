@@ -72,19 +72,16 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
     
-    // play for 5 rounds
-    for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        
-        const result = playRound(humanSelection, computerSelection);
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
     
-        // increment scores based on round winner
-        if (result == "humanWin") {
-            humanScore++;
-        } else if (result == "computerWin") {
-            computerScore++;
-        }
+    const result = playRound(humanSelection, computerSelection);
+
+    // increment scores based on round winner
+    if (result == "humanWin") {
+        humanScore++;
+    } else if (result == "computerWin") {
+        computerScore++;
     }
 
     // log message for final winner after 5 rounds
