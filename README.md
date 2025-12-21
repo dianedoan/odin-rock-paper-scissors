@@ -1,4 +1,2 @@
 # Odin Rock Paper Scissors
-
-## Description
-A creation of the Rock Paper Scissors game played entirely in the console. 
+A creation of the Rock Paper Scissors game accessed at https://dianedoan.github.io/odin-rock-paper-scissors/ can be played with a UI consisting of three buttons for each choice. 
