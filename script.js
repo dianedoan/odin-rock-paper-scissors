@@ -95,3 +95,11 @@ function playGame() {
 }
 
 playGame();
+
+// add event listeners for buttons
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        playRound(button.id, getComputerChoice())
+    })
+});
